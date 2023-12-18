@@ -19,6 +19,7 @@ export const getListProduct = async (queryOptions?: PaginationParams) => {
   const skip = (queryPage - 1) * limit;
 
   const ky = await getKyServer();
+
   return await ky
     .get("products", {
       searchParams: {
@@ -35,6 +36,5 @@ export const getListProduct = async (queryOptions?: PaginationParams) => {
 
 export const getProductDetail = async (id: string) => {
   const ky = await getKyServer();
-  const response = await ky.get(`products/${id}`).json<Product>();
-  return response;
+  return await ky.get(`products/${id}`).json<Product>();
 };

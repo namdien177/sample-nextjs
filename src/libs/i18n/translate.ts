@@ -38,9 +38,13 @@ const getTranslation = (key: string, dictionary?: Dictionary): string => {
  */
 const t = (
   key: string,
-  dictionary: Dictionary,
+  dictionary: Dictionary | undefined,
   params?: Record<string, string | number>,
 ): string => {
+  if (!dictionary) {
+    return key;
+  }
+
   try {
     let result = getTranslation(key, dictionary);
     // check have params in the result, with the pattern of {{param}}, then replace it accordingly.
@@ -51,7 +55,6 @@ const t = (
       if (matches && matches.length > 0) {
         matches.forEach((match) => {
           const key = match.replace(/^\{\{/, "").replace(/}}$/, "");
-          console.log(params, key);
           if (params[key] === undefined) {
             throw new Error(`Missing param ${key} for key ${key}`);
           }
