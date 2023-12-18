@@ -1,0 +1,23 @@
+{
+  "sign-in": "Sign in",
+  "sign-out": "Sign out",
+  "select-language": "Select language",
+  "home": "Home",
+  "products": "Products",
+  "profile": "Profile",
+  "homepage-page": {
+    "welcome": "Welcome back, {{name}}!",
+    "welcome-visitor": "Welcome, visitor!",
+    "sign-in-suggestion": "You are not signed in. Would you like to sign in?"
+  },
+  "sign-in-page": {
+    "title": "Sign in",
+    "username": "Username",
+    "username-placeholder": "Enter your username",
+    "password": "Password",
+    "password-placeholder": "Enter your password",
+    "remember-me": "Remember me",
+    "forgot-password": "Forgot password?",
+    "action": "Login"
+  }
+}

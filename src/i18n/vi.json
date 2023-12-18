@@ -1,0 +1,23 @@
+{
+  "sign-in": "Đăng nhập",
+  "sign-out": "Đăng xuất",
+  "select-language": "Chọn ngôn ngữ",
+  "home": "Trang chủ",
+  "products": "Các sản phẩm",
+  "profile": "Tài khoản",
+  "homepage-page": {
+    "welcome": "Chào bạn, {{name}}!",
+    "welcome-visitor": "Chào bạn!",
+    "sign-in-suggestion": "Bạn chưa đăng nhập. Bạn có muốn đăng nhập không?"
+  },
+  "sign-in-page": {
+    "title": "Đăng nhập",
+    "username": "Tên đăng nhập",
+    "username-placeholder": "Nhập tên đăng nhập",
+    "password": "Mật khẩu",
+    "password-placeholder": "Nhập mật khẩu",
+    "remember-me": "Ghi nhớ",
+    "forgot-password": "Quên mật khẩu?",
+    "action": "Đăng nhập"
+  }
+}
