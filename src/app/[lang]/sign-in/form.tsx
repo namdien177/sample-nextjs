@@ -8,6 +8,7 @@ import { Label } from "~/components/ui/label";
 import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
 import { z } from "zod";
+import { useState } from "react";
 
 const loginSchema = z.object({
   username: z.string().min(4),
@@ -17,26 +18,25 @@ const loginSchema = z.object({
 type LoginSchema = z.infer<typeof loginSchema>;
 
 const FormLogin = () => {
+  const [signInError, setSignInError] = useState<string | null>(null);
   const router = useRouter();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<LoginSchema>({
+  const { register, handleSubmit } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
   });
 
   const onSubmission = async (data: LoginSchema) => {
-    console.log(data);
     try {
       const response = await signIn("credentials", {
         username: data.username,
         password: data.password,
         redirect: false,
       });
-      console.log(response);
       if (response?.error) {
-        console.log(response.error);
+        if (response.status === 401) {
+          setSignInError("Invalid credentials");
+        } else {
+          setSignInError("Something went wrong");
+        }
         return;
       }
 
@@ -56,13 +56,24 @@ const FormLogin = () => {
 
       <div className="flex flex-col gap-2">
         <Label htmlFor="username">Username</Label>
-        <Input type="text" {...register("username")} />
+        <Input
+          aria-label={"username"}
+          id="username"
+          type="text"
+          {...register("username")}
+        />
       </div>
 
       <div className="flex flex-col gap-2">
-        <Label htmlFor="username">Username</Label>
-        <Input type="password" {...register("password")} />
+        <Label htmlFor="password">Password</Label>
+        <Input
+          aria-label={"password"}
+          id="password"
+          type="password"
+          {...register("password")}
+        />
       </div>
+      {signInError && <p className={"text-red-500"}>{signInError}</p>}
       <Button type="submit">Login</Button>
     </form>
   );

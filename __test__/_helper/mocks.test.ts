@@ -46,4 +46,18 @@ describe("[helper] mocks", () => {
     // assert the [fr] cookie value is [fr]
     expect(frCookie?.value).toBe("fr");
   });
+
+  // [jestWaitFor] should wait for the given time
+  it("[jestWaitFor] should wait for the given time", async () => {
+    // import the jestWaitFor function
+    const { jestWaitFor } = await import("./mocks");
+    // get the start time
+    const startTime = Date.now();
+    // wait for 1 second
+    await jestWaitFor(1000);
+    // get the end time
+    const endTime = Date.now();
+    // assert the time difference is greater than or equal to 1000
+    expect(endTime - startTime).toBeGreaterThanOrEqual(1000);
+  });
 });

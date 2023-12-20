@@ -1,3 +1,7 @@
+export const jestWaitFor = (ms: number) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
 export const mockedCookies = (
   collection: Record<string, string> = {
     vi: "vi",

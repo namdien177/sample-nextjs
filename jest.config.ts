@@ -25,6 +25,7 @@ const config: Config = {
   },
   testEnvironment: "jsdom",
   // transformIgnorePatterns: ["/node_modules/(?!(ky))"],
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };
 
 export default createJestConfig(config);

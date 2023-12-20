@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom";
 import { type PaginationMeta } from "~/libs/typings/pagination";
 import type Product from "~/libs/model/product";
 import Page from "~/app/[lang]/product/page";
