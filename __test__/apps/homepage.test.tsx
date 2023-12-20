@@ -94,11 +94,7 @@ describe("/[lang] - HomePage - Authenticated", () => {
     // little hack to workaround the server component.
     render(await Page(fakePageParams));
     const dictionaryVi = await import("~/i18n/vi.json").then((m) => m.default);
-    const headingText =
-      dictionaryVi["homepage-page"][
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        "welcome"
-      ];
+    const headingText = dictionaryVi["homepage-page"].welcome;
     const populatedHeadingText = headingText.replace(
       "{{name}}",
       mockSessionResult().user.name,
@@ -120,11 +116,7 @@ describe("/[lang] - HomePage - Authenticated", () => {
     // little hack to workaround the server component.
     render(await Page(fakePageParams));
     const dictionaryEn = await import("~/i18n/en.json").then((m) => m.default);
-    const headingText =
-      dictionaryEn["homepage-page"][
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        "welcome"
-      ];
+    const headingText = dictionaryEn["homepage-page"].welcome;
     const populatedHeadingText = headingText.replace(
       "{{name}}",
       mockSessionResult().user.name,
@@ -154,11 +146,7 @@ describe("/[lang] - HomePage - Authenticated", () => {
     // little hack to workaround the server component.
     render(await Page(fakePageParams));
     const dictionaryEn = await import("~/i18n/en.json").then((m) => m.default);
-    const headingText =
-      dictionaryEn["homepage-page"][
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        "welcome"
-      ];
+    const headingText = dictionaryEn["homepage-page"].welcome;
     const populatedHeadingText = headingText.replace(
       "{{name}}",
       mockSessionResult().user.email,
@@ -187,11 +175,7 @@ describe("/[lang] - HomePage - Authenticated", () => {
     // little hack to workaround the server component.
     render(await Page(fakePageParams));
     const dictionaryVi = await import("~/i18n/vi.json").then((m) => m.default);
-    const headingText =
-      dictionaryVi["homepage-page"][
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        "welcome"
-      ];
+    const headingText = dictionaryVi["homepage-page"].welcome;
     const populatedHeadingText = headingText.replace(
       "{{name}}",
       mockSessionResult().user.email,
