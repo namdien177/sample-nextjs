@@ -18,10 +18,7 @@ const mockSessionResult = () => ({
 });
 
 jest.mock("next/headers", () => ({
-  cookies: jest.fn().mockReturnValue(
-    // emulate the cookies() function from next/headers
-    mockedCookies(),
-  ),
+  cookies: jest.fn(),
 }));
 
 // must pre-mock for compiling successfully
@@ -30,6 +27,12 @@ jest.mock("~/server/auth", () => ({
 }));
 
 describe("/[lang] - HomePage - Unauthenticated", () => {
+  beforeEach(async () => {
+    const { cookies } = await import("next/headers");
+    const mockedFn = cookies as jest.Mock;
+    mockedFn.mockReturnValue(mockedCookies());
+  });
+
   it("renders heading in correct language [vi]", async () => {
     const fakePageParams = {
       params: {
