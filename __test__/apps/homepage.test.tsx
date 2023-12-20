@@ -1,21 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Page from "~/app/[lang]/page";
-import { mockedCookies } from "../_helper/mocks";
-
-const mockSessionResult = () => ({
-  user: {
-    id: "1",
-    username: "testing.account",
-    firstName: "Testing",
-    lastName: "Account",
-    email: "testing.account@gmail.com",
-    name: "Testing Account",
-    gender: "other",
-    image: "https://example.com/image.png",
-    token: "token",
-  },
-  expires: new Date().toISOString(),
-});
+import { mockedCookies, mockSessionResult } from "../_helper/mocks";
 
 jest.mock("next/headers", () => ({
   cookies: jest.fn(),

@@ -27,3 +27,18 @@ export const mockedCookies = (
     };
   };
 };
+
+export const mockSessionResult = () => ({
+  user: {
+    id: "1",
+    username: "testing.account",
+    firstName: "Testing",
+    lastName: "Account",
+    email: "testing.account@gmail.com",
+    name: "Testing Account",
+    gender: "other",
+    image: "https://example.com/image.png",
+    token: "token",
+  },
+  expires: new Date().toISOString(),
+});
